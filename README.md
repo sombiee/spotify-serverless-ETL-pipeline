@@ -2,7 +2,7 @@
 This toyproject is done to build a serverless data pipeline to analyse `Top 50 Global` playlist from Spotify: How Top 50 Global songs are changed, which song lasts longer by their properties, etc. Since `Top 50 Global` playlist updates daily, we need daily triggered event to dump data from Spotify API, extract valuable data from dump, transform into structured schema, and load transformed data into analyze pipeline, where SQL is excutable.
 
 ## Architecture
-![serverless-etl](https://user-images.githubusercontent.com/43290363/224493335-92b25add-441c-4b65-b6bb-11509938b3df.png)
+![serverless-etl](https://user-images.githubusercontent.com/43290363/224507907-2b22a26f-7a9a-420a-adc5-6c959c217658.png)
 
 
 ## Used Stack 
@@ -96,6 +96,6 @@ We are not interesed in who/what added songs to the playlist. However, track inc
 ## (In progress) Serverless to EC2 Server
 Same ETL pipeline but with Apache Kafka on AWS EC2 👉 [ETL with Kafka server](https://github.com/sombiee/spotify-kafka-pipeline)
 
-![etl-on-server](https://user-images.githubusercontent.com/43290363/224494127-9444539f-82a9-4001-ac26-887f33b5e72c.png)
+![etl-on-server](https://user-images.githubusercontent.com/43290363/224508048-11693dd7-e2cc-4b9b-b82b-6ef55a214c76.png)
 
 Currently, I do not have enough server resources to run spark properly. Instead of moving from free-tier ec2 instance, I will use AWS Glue and Athena for data analysis.
