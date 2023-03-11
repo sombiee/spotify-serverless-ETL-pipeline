@@ -94,7 +94,6 @@ We are not interesed in who/what added songs to the playlist. However, track inc
 ```
 
 ## (In progress) Serverless to EC2 Server
----
 Same ETL pipeline but with Apache Kafka on AWS EC2 👉 [ETL with Kafka server](https://github.com/sombiee/spotify-kafka-pipeline)
 
 ![etl-on-server](https://user-images.githubusercontent.com/43290363/224494127-9444539f-82a9-4001-ac26-887f33b5e72c.png)
