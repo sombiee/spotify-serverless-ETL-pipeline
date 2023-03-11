@@ -42,7 +42,7 @@ data = sp.playlist_tracks(playlist_URI)
 ```
 
 ### Fetched data structure (.json)
-```json
+```javascript
 // Data fetched from `sp.playlist_tracks()`
 {
     'href': '...(omitted)',
@@ -54,7 +54,7 @@ data = sp.playlist_tracks(playlist_URI)
 ### Fetched nested data structure(.json): 'item'
 To dig deeper into the fetched data, we need to look deeper into `data['item']`. `data['item']` is consisted as
 
-```json
+```javascript
 // data['item']
 {
     'added_at': '2023-03-10T10:51:45Z',
@@ -66,7 +66,7 @@ To dig deeper into the fetched data, we need to look deeper into `data['item']`.
 }
 ```
 We are not interesed in who/what added songs to the playlist. However, track includes useful data. Sample a song with `data['item'][#]['track']`
-```json
+```javascript
 // data['item'][#]['track']
 {
     'track': {
