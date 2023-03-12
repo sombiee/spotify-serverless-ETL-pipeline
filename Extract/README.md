@@ -4,6 +4,8 @@ Data extract module 1) dumps data from spotify 2) extracts useful data into AWS 
 ![serverless-extract](https://user-images.githubusercontent.com/43290363/224507943-eeddc6ea-2616-4d23-bb96-f50ecebfc280.png)
 
 ## Fetch data from Spotify
+> ⚠️ All AWS services must in the same region. Otherwise, some pipeline would not work properly. 
+
 Instead of using python request, Spotipy provides an easy way to access Spotify Web API. Pick a playlist and fetch data on daily basis. [How to access API with python](https://github.com/sombiee/spotify-serverless-ETL-pipeline) I used. Or detailed description is on [Spotipy docs](https://spotipy.readthedocs.io/en/2.22.1/). Daily triggered event is set on AWS EventBridge.
 
 ## Data extraction on AWS
