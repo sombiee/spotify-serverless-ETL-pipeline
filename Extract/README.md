@@ -9,7 +9,7 @@ Data extract module 1) dumps data from spotify 2) extracts useful data into AWS 
 Instead of using python request, Spotipy provides an easy way to access Spotify Web API. Pick a playlist and fetch data on daily basis. [How to access API with python](https://github.com/sombiee/spotify-serverless-ETL-pipeline) I used. Or detailed description is on [Spotipy docs](https://spotipy.readthedocs.io/en/2.22.1/). Daily triggered event is set on AWS EventBridge.
 
 ## Data extraction on AWS
-Since I am tracking `Top 50 Global` playlist which updates daily, I need to get data dumped daily. Chronical job or event-triggered job will be scheduled using AWS EventBridge under CloudWatch. Once jobs are set, AWS Lambda will be triggered and extract the data in need. Extracted data will be stored in AWS S3 as a raw data for analysis. 
+Since I am tracking `Top 50 Global` playlist which updates daily, I need to get data dumped daily. Periodic job or event-triggered job will be scheduled using AWS EventBridge under CloudWatch. Once jobs are set, AWS Lambda will be triggered and extract the data in need. Extracted data will be stored in AWS S3 as a raw data for analysis. 
 
 ### CloudWatch/ EventBridge
 Amazon Web Service(AWS) offers a broad set of global cloud-based products on-demand, available in seconds, with pay-as-you-go pricing. Despite of its accessibility, AWS is often considered as pricey option due to the 'pay-as-you-go' pricing policy. Security policy always comes first but to bridgade unexpected bills, CloudWatch budget limit is used. This is just a toy project, so set the buget as `Zero spend budget`, or `Monthly cost budget` and set the budget less than how much you expect to pay.
