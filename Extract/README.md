@@ -1,5 +1,5 @@
 # Data Extract Module
-Data extract module 1) dumps data from spotify 2) extracts useful data into AWS S3. 
+Data extract module 1) dumps data from spotify 2) extracts useful data into AWS S3. Highlighted area below is the architecture of Data extracted module.
 
 ![serverless-extract](https://user-images.githubusercontent.com/43290363/224507943-eeddc6ea-2616-4d23-bb96-f50ecebfc280.png)
 
@@ -26,6 +26,8 @@ In this project, we are using `python 3.8` with additional packages that AWS off
 
 AWS Simple Storage Service(S3) is an object storage service offering industry-leading scalability, data availiability, security and performance. In this module, S3 is used to store extracted data. 
 
+![s3-extraction](https://user-images.githubusercontent.com/43290363/224534458-9e6eb3fa-16da-4a1e-b8de-7744f3c9d631.png)
+
 S3 Stores data in a `bucket`. Bucket is consisted of objects aka data file. Bucket can divided into folders, which let S3 act as database system. (Detailed DB Schema/ cataloging is infered on AWS Glue). 
 
-To process raw data only once, separate raw data storage folder into `to_process` and `processed`. Once the data is extracted and 
+To process raw data only once, separate raw data storage folder into `to_process` and `processed`. Once the data is extracted and stored in S3 `raw_data/to_processed/`, raw data will be transformed in transformation module and loaded into `raw_data/processed/` folder.
