@@ -17,7 +17,7 @@ Amazon Web Service(AWS) offers a broad set of global cloud-based products on-dem
 AWS EventBridge offers two ways to set chronical jobs: `cronjob` and `rate`. Choose a command in your favor and set as Lambda trigger configuration.
 
 ### Lambda
-> ⚠️ Spotipy package should be ready as .zip format in order to be used on AWS Lambda
+> ⚠️ Spotipy package should be ready as .zip format in order to be used on AWS Lambda layer
 
 AWS Lambda is a serverless, event-driven compute service that lets your code run without provisioning or managing servers. Combining Lambda with EventBridge, you can run your code on a set period.
 

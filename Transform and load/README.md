@@ -1,21 +1,28 @@
 # Data transformation & load module
 
-![transform-architect](https://user-images.githubusercontent.com/43290363/224507989-f5822bc0-cefc-4f62-9529-f132477b1596.png)
-
 ## Data transformation module
-raw -> data format -> bulk into album/artist/song
-
+![transform-architect](https://user-images.githubusercontent.com/43290363/224507989-f5822bc0-cefc-4f62-9529-f132477b1596.png)
 ### EventBridge
-when data format has changed and moved to processed folder
+Extracted bulk data propertiess only have `str` datatype. However, from what I extracted, datetime object is included. To manually transform date datatype as `str` into `datetime` object and do further data transformation, we set a trigger when raw data is extracted into S3 `raw_data/to_process/` folder. This trigger is attached to Lambda.  
 
 ### Lambda
-processed bulk data -> album/artist/song
+> ⚠️ Lambda uses python 3.8 with AWS pandas layer
 
+Lambda is activated when data is extracted from Spotify Web API. Bulk data is not a proper form to analyse data. Therefore we transform bulk data into a proper form, which divide bulk data into properties: album, artist, song
+
+Firstly, transform datatype based on their properties and store in `raw_data/processed/` folder. Bulk data is extracted from `.json` so all extracted data's datatype is set as string. For example, `added_date` should be `datetime object` instead of `str`.
+
+Secondly, transform bulk data from `raw_data/processed/` into SQL-excutable form and store in `transformed/{designated folder}`. In this project, we are tracking `Top 50 Global` playlist alonf artists and albums. So divide bulk data into 3 pieces: album, artist, and song. Python Pandas package is used for easier data manupulation. 
+
+Lastly, we do not want to excute the same transformation process on the same dataset. Therefore, delete transformed raw data object from `raw_data/to_process/` folder.
 
 ### S3
 create or put into the designated folder
 
 ![s3-transformation](https://user-images.githubusercontent.com/43290363/224537445-07cb17cc-9615-41e9-a925-cf2f2158e49b.png)
+
+Lambda function is triggered as datatype transformation is executed. During the transformation process, we actively GET data from S3 and CREATE/UPDATE objects in S3. Figure above shows how data is trnasformed on the pipeline. 
+
 
 ## Data load module
 
