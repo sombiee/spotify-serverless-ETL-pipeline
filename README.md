@@ -1,5 +1,5 @@
 # spotify-serverless-ETL-pipeline
-This toyproject is done to build a serverless data pipeline to analyse `Top 50 Global` playlist from Spotify: How Top 50 Global songs are changed, which song lasts longer by their properties, etc. Since `Top 50 Global` playlist updates daily, we need daily triggered event to dump data from Spotify API, extract valuable data from dump, transform into structured schema, and load transformed data into analyze pipeline, where SQL is excutable.
+This toy project is done to build a serverless data pipeline to analyse `Top 50 Global` playlist from Spotify: How Top 50 Global songs are changed, which song lasts longer by their properties, etc. Since `Top 50 Global` playlist updates daily, we need daily triggered event to dump data from Spotify API, extract valuable data from dump, transform into structured schema, and load transformed data into analyze pipeline, where SQL is excutable.
 
 ## Architecture
 ![serverless-etl](https://user-images.githubusercontent.com/43290363/224507907-2b22a26f-7a9a-420a-adc5-6c959c217658.png)
@@ -13,11 +13,13 @@ This toyproject is done to build a serverless data pipeline to analyse `Top 50 G
     - Event Bridge
     - S3
     - Lambda
-    - Glue: Crawler, Catalog
+    - Glue
     - Athena
     - IAM
 
 ## Exploring Spotify Web API using Spotipy
+> ⚠️ These were done on local Jupyter notebook for testing prupose!
+
 [Spotify for developers](https://developer.spotify.com/) offers official Web APIs to access various data. However, for Python users, [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/) provides an easier ways to acess Spotify Web API using python. Detailed description is listed on [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/). Here, I will highlight on data that is going to be used on the project. All processes are done on Jupyter notebook.
 
 
@@ -98,4 +100,4 @@ Same ETL pipeline but with Apache Kafka on AWS EC2 👉 [ETL with Kafka server](
 
 ![etl-on-server](https://user-images.githubusercontent.com/43290363/224508048-11693dd7-e2cc-4b9b-b82b-6ef55a214c76.png)
 
-Currently, I do not have enough server resources to run spark properly. Instead of moving from free-tier ec2 instance, I will use AWS Glue and Athena for data analysis.
+Currently, I do not have enough server resources to run spark properly. Instead of moving from free-tier ec2 instance, I will use AWS Glue and Athena for data load and analysis.
